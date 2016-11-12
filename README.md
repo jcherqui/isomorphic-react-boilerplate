@@ -1,7 +1,7 @@
-React Boilerplate
+Redux Boilerplate
 ===
 
-Boilerplate React + Webpack + ES6 + Makefile
+Boilerplate React + Redux + Webpack + ES6 + Makefile
 
 Install
 ---
