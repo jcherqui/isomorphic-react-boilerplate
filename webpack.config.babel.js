@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 module.exports = {
     entry: {
         index: [
-            './src/js/main.js',
+            './src/js/index.js',
             './src/css/main.scss',
         ],
     },
