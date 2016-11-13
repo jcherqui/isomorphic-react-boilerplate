@@ -1,0 +1,5 @@
+- [x] Add localstorage
+- [ ] Add form validation
+- [ ] Add loader
+- [ ] Add [devtools](https://github.com/gaearon/redux-devtools/)
+- [ ] React router
