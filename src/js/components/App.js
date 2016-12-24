@@ -4,7 +4,7 @@ import UserList from '../containers/user-list';
 const App = () => {
     return (
         <div>
-            <div>Hello World!</div>
+            <p>My app</p>
             <UserList />
         </div>
     );
