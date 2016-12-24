@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import reducers from './reducers';
-import App from './components/App';
+import { Router, hashHistory } from 'react-router';
+import Routes from './routes';
 import { loadState, saveState } from './localStorage';
+import reducers from './reducers';
 
 const persistedState = loadState();
 const store = createStore(
@@ -19,7 +20,7 @@ store.subscribe(() => {
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router routes={Routes} history={hashHistory} />
     </Provider>,
     document.getElementById('root')
 );
