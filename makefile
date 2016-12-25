@@ -11,6 +11,7 @@ run: ## Run application
 		--progress \
 		--no-info \
 		--hot \
+		--history-api-fallback \
 		--inline
 
 build: ## Build with webpack

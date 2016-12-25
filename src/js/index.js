@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import { Router, hashHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import Routes from './routes';
 import { loadState, saveState } from './localStorage';
 import reducers from './reducers';
@@ -20,7 +20,7 @@ store.subscribe(() => {
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router routes={Routes} history={hashHistory} />
+        <Router routes={Routes} history={browserHistory} />
     </Provider>,
     document.getElementById('root')
 );
