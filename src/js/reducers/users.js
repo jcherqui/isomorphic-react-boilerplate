@@ -1,4 +1,4 @@
-export default function () {
+export default () => {
     return [
         {
             id: 1,
@@ -25,4 +25,4 @@ export default function () {
             thumbnail: 'http://i.imgur.com/4EMtxHB.png',
         },
     ];
-}
+};

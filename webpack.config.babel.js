@@ -9,7 +9,7 @@ module.exports = {
         ],
     },
     output: {
-        path: `${__dirname}/dist`,
+        path: `${__dirname}/public`,
         filename: 'bundle.js',
     },
     module: {
@@ -17,6 +17,7 @@ module.exports = {
             { test: /\.html$/, loader: 'html' },
             { test: /\.json$/, loader: 'json' },
             { test: /\.s?css$/, loader: ExtractTextPlugin.extract('css!sass') },
+            { test: /\.jsx?$/, loader: 'babel', exclude: /node_modules/ },
             {
                 test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
                 loader: 'url',
@@ -24,11 +25,6 @@ module.exports = {
                     limit: 10000,
                     name: '[name]-[hash:7].[ext]',
                 },
-            },
-            {
-                test: /\.jsx?$/,
-                loader: 'babel',
-                exclude: /node_modules/,
             },
         ],
     },
