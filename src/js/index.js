@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Router, browserHistory } from 'react-router';
-import Routes from './routes';
 import { loadState, saveState } from './localStorage';
+import Routes from './routes';
 import reducers from './reducers';
 
 const persistedState = loadState();
@@ -15,7 +15,8 @@ const store = createStore(
 );
 
 store.subscribe(() => {
-    saveState({ book: store.getState().book });
+    saveState(store.getState());
+    console.log('store changed!', store.getState());
 });
 
 ReactDOM.render(

@@ -1,13 +1,8 @@
 import React from 'react';
-import UserList from '../containers/user-list';
+import Welcome from './Welcome';
 
 const App = () => {
-    return (
-        <div>
-            <p>My app</p>
-            <UserList />
-        </div>
-    );
+    return <Welcome />;
 };
 
 export default App;
