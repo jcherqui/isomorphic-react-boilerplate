@@ -18,3 +18,5 @@ export const saveState = (state) => {
         // Ignore write errors.
     }
 };
+
+export const removeState = () => localStorage.clear();
