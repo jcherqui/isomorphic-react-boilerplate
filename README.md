@@ -8,15 +8,15 @@ Install
 
 `make install`
 
-Run
----
-
-`make run`
-
 Build
 ---
 
 `make build`
+
+Run
+---
+
+`make run`
 
 License
 ---
