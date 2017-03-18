@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectUser } from '../actions/index';
 
-class UserList extends Component {
+class Users extends Component {
 
     renderList() {
         return this.props.users.map((user) => {
@@ -25,8 +25,8 @@ function mapStateToProps(state) {
     };
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
     return bindActionCreators({ selectUser }, dispatch);
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(UserList);
+export default connect(mapStateToProps, mapDispatchToProps)(Users);
