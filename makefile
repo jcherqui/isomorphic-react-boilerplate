@@ -30,7 +30,7 @@ start-selenium:
 	@ ./node_modules/.bin/selenium-standalone start
 
 test: ## Run tests
-	@ NODE_ENV=test ./node_modules/.bin/mocha --compilers js:babel-core/register --require babel-polyfill test/*.spec.js
+	@ NODE_ENV=test ./node_modules/.bin/mocha --compilers js:babel-core/register --require babel-polyfill --require co-mocha test/setup.js test/specs/*.spec.js
 
 browser-sync:
 	@ ./node_modules/.bin/browser-sync start --proxy "http://0.0.0.0:${PORT}" --files "dist/*"
