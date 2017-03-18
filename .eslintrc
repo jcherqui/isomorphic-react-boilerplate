@@ -12,6 +12,7 @@
       "import/no-extraneous-dependencies": [0]
   },
   "env": {
-      "browser": true
+      "browser": true,
+      "mocha": true
   }
 }

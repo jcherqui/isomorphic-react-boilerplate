@@ -1,4 +1,4 @@
-.PHONY: install run build
+.PHONY: install run build test
 
 PORT := 8080
 
@@ -8,6 +8,7 @@ check: ## Check dependencies
 
 install: check ## Install application
 	@ yarn --ignore-engines
+	@ ./node_modules/.bin/selenium-standalone install
 
 run: ## Run application
 	@ NODE_ENV=production PORT=${PORT} node dist/server.js
@@ -24,6 +25,12 @@ build: ## Build with webpack
 	@ mkdir -p dist
 	@ NODE_ENV=production ./node_modules/.bin/babel --minified --compact true -d dist/ src/js/server --only server.js,api.js
 	@ NODE_ENV=production ./node_modules/.bin/webpack -p --progress --colors
+
+start-selenium:
+	@ ./node_modules/.bin/selenium-standalone start
+
+test: ## Run tests
+	@ NODE_ENV=test ./node_modules/.bin/mocha --compilers js:babel-core/register --require babel-polyfill test/*.spec.js
 
 browser-sync:
 	@ ./node_modules/.bin/browser-sync start --proxy "http://0.0.0.0:${PORT}" --files "dist/*"
