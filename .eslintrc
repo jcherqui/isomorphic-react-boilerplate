@@ -11,7 +11,12 @@
       "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
       "import/no-extraneous-dependencies": [0]
   },
+  "globals": {
+      "assert",
+      "browser"
+  },
   "env": {
-      "browser": true
+      "browser": true,
+      "mocha": true
   }
 }
