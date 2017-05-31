@@ -1,16 +1,17 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import webpack from 'webpack';
 
 module.exports = {
     entry: {
         index: [
-            './src/js/client/index.js',
-            './src/css/main.scss',
+            './src/client/js/index.js',
+            './src/client/css/main.scss',
         ],
     },
     output: {
-        path: `${__dirname}/dist`,
+        path: `${__dirname}/public`,
         filename: 'bundle.js',
     },
     module: {
@@ -34,7 +35,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: `${__dirname}/src/index.html`,
+            template: `${__dirname}/src/client/index.html`,
             hash: true,
         }),
         new webpack.DefinePlugin({
@@ -42,5 +43,10 @@ module.exports = {
         }),
         new ExtractTextPlugin({ filename: '[name].css', allChunks: false }),
         new webpack.optimize.UglifyJsPlugin(),
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 3000,
+            server: { baseDir: ['public'] },
+        }),
     ],
 };

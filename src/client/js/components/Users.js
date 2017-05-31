@@ -19,14 +19,7 @@ class Users extends Component {
 
 }
 
-function mapStateToProps(state) {
-    return {
-        users: state.users,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ selectUser }, dispatch);
-}
+const mapStateToProps = state => ({ users: state.users });
+const mapDispatchToProps = dispatch => bindActionCreators({ selectUser }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Users);

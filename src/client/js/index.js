@@ -6,12 +6,7 @@ import { loadState, saveState } from './localStorage';
 import reducers from './reducers';
 import App from './components/App';
 
-const persistedState = loadState();
-const store = createStore(
-    reducers,
-    persistedState,
-);
-
+const store = createStore(reducers, loadState());
 store.subscribe(() => {
     saveState(store.getState());
     console.log('store changed!', store.getState());
