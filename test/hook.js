@@ -27,7 +27,7 @@ before(() => {
     return browser;
 });
 
-after(() => {
+after(async () => {
     listeningServer.close();
-    browser.end();
+    await browser.end();
 });
