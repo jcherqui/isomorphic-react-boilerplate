@@ -1,7 +1,7 @@
 Isomorphic React Boilerplate
 ===
 
-[![Build Status](https://travis-ci.org/stoneo/javascript-boilerplate.svg?branch=master)](https://travis-ci.org/stoneo/javascript-boilerplate/)
+[![Build Status](https://travis-ci.org/ston3o/javascript-boilerplate.svg?branch=master)](https://travis-ci.org/ston3o/javascript-boilerplate/)
 
 Boilerplate React + Redux + Express + Webpack + ES6 + Makefile
 
