@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { loadState, saveState } from './localStorage';
-import reducers from './reducers';
-import App from './components/App';
+import reducers from './app/reducers';
+import App from './app/App';
 
 const store = createStore(reducers, loadState());
 store.subscribe(() => {
