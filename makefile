@@ -22,7 +22,7 @@ watch: ## Watch
 
 build: ## Build with webpack
 	@ rm -rf public && mkdir -p public
-	@ NODE_ENV=production ./node_modules/.bin/babel --minified --compact true -d public/ src/server
+	@ NODE_ENV=production ./node_modules/.bin/babel --minified --no-comments --compact true -d public/ src/server
 	@ NODE_ENV=production ./node_modules/.bin/webpack -p --progress --colors
 
 start-selenium:

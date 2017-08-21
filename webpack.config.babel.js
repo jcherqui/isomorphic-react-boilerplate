@@ -42,7 +42,7 @@ module.exports = {
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
         }),
         new ExtractTextPlugin({ filename: '[name].css', allChunks: false }),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({ comments: false }),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
