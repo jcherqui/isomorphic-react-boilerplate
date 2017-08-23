@@ -5,7 +5,7 @@ describe('my tests', () => {
         const title = await browser.getTitle();
         assert.equal(title, 'Boilerplate');
 
-        const text = await browser.getText('.hello');
+        const text = await browser.getText('#hello');
         assert.equal(text, 'Hello world!');
     });
 });
