@@ -1,7 +1,7 @@
 {
   "name": "javascript-boilerplate",
-  "homepage": "https://github.com/jcherqui/javascript-boilerplate",
-  "license": "MIT",
+  "homepage": "https://github.com/ston3o/javascript-boilerplate",
+  "license": "GPL-3.0",
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-cli": "^6.24.1",
