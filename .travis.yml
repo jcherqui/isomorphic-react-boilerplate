@@ -2,7 +2,7 @@
 dist: trusty
 language: node_js
 node_js:
-  - "4.5.0"
+  - 6
 install:
   - npm i -g yarn
   - make install
@@ -14,9 +14,7 @@ before_script:
 script:
   - make build
   - make test
-cache:
-  directories:
-    - node_modules
+cache: false
 branches:
   only:
     - master
