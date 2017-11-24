@@ -45,29 +45,19 @@ const config = {
         new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(env) }),
         new ExtractTextPlugin({ filename: '[name].css', allChunks: false }),
         new UglifyJsPlugin({ uglifyOptions: { output: { comments: false } } }),
+        new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+            defaultSizes: 'gzip',
+            analyzerMode: 'static',
+        }),
     ],
 };
 
 if (env === 'development') {
-    config.plugins.push(
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            server: { baseDir: ['public'] },
-        }),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-            defaultSizes: 'gzip',
-            analyzerPort: 9999,
-        }),
-    );
-}
-
-if (env === 'production') {
-    config.plugins.push(new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-        defaultSizes: 'gzip',
-        analyzerMode: 'static',
+    config.plugins.push(new BrowserSyncPlugin({
+        host: 'localhost',
+        port: 3000,
+        server: { baseDir: ['public'] },
     }));
 }
 
