@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import webpack from 'webpack';
 
@@ -43,7 +44,7 @@ const config = {
         }),
         new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(env) }),
         new ExtractTextPlugin({ filename: '[name].css', allChunks: false }),
-        new webpack.optimize.UglifyJsPlugin({ comments: false }),
+        new UglifyJsPlugin({ uglifyOptions: { output: { comments: false } } }),
     ],
 };
 
@@ -70,4 +71,4 @@ if (env === 'production') {
     }));
 }
 
-module.exports = config;
+export default config;
