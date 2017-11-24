@@ -1,9 +1,12 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import webpack from 'webpack';
 
-module.exports = {
+const env = process.env.NODE_ENV || 'development';
+
+const config = {
     entry: {
         index: [
             './src/client/js/index.js',
@@ -12,7 +15,7 @@ module.exports = {
     },
     output: {
         path: `${__dirname}/public`,
-        filename: 'bundle.js',
+        filename: 'bundle-[hash].js',
     },
     module: {
         rules: [
@@ -38,15 +41,33 @@ module.exports = {
             template: `${__dirname}/src/client/index.html`,
             hash: true,
         }),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
-        }),
+        new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(env) }),
         new ExtractTextPlugin({ filename: '[name].css', allChunks: false }),
         new webpack.optimize.UglifyJsPlugin({ comments: false }),
+    ],
+};
+
+if (env === 'development') {
+    config.plugins.push(
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
             server: { baseDir: ['public'] },
         }),
-    ],
-};
+        new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+            defaultSizes: 'gzip',
+            analyzerPort: 9999,
+        }),
+    );
+}
+
+if (env === 'production') {
+    config.plugins.push(new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+        defaultSizes: 'gzip',
+        analyzerMode: 'static',
+    }));
+}
+
+module.exports = config;
