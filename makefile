@@ -8,7 +8,7 @@ check: ## Check dependencies
 
 install: check ## Install application
 	@ yarn --ignore-engines
-	@ ./node_modules/.bin/selenium-standalone install
+	@ ./node_modules/.bin/selenium-standalone install --version=3.5.3
 
 run: ## Run application
 	@ NODE_ENV=production PORT=${PORT} node public/index.js
@@ -26,7 +26,7 @@ build: ## Build with webpack
 	@ NODE_ENV=production ./node_modules/.bin/webpack -p --progress --colors
 
 start-selenium:
-	@ ./node_modules/.bin/selenium-standalone start
+	@ ./node_modules/.bin/selenium-standalone start --version=3.5.3
 
 test: ## Run tests
 	@ NODE_ENV=test ./node_modules/.bin/mocha -t 99999999 --require babel-register --require babel-polyfill test/hook.js test/specs/*.spec.js
