@@ -3,3 +3,6 @@
 - [ ] Add loader
 - [ ] Add [devtools](https://github.com/gaearon/redux-devtools/)
 - [ ] React router
+- [ ] react-helmet
+- [ ] jest/enzyme
+- [ ] Progressive web app
