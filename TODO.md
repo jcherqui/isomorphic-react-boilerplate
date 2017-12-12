@@ -6,3 +6,5 @@
 - [ ] react-helmet
 - [ ] jest/enzyme
 - [ ] Progressive web app
+- [ ] Parcel
+- [ ] server.js
